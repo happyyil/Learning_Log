@@ -1,0 +1,20 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+  <h2>更新日志</h2>
+  <p>以下是网站更新日志：</p>
+{% endblock %}
+
+{% block content %}
+  {% if logs %}
+    <ul>
+      {% for log in logs %}
+        <div class="card mb-3">
+          <li>{{ log.date_added }} - {{ log }}</li>
+        </div>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>还没有更新日志！</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+  <h2>分享条目</h2>
+{% endblock page_header %}
+
+{% block content %}
+
+<h5>分享链接: {{ share_url }}</h5>
+<a href="{% url 'learning_logs:entry_token' entry.id %}" role="button">复制链接</a>
+
+<p>分享此条目，让其他用户可以查看。</p>
+
+{% endblock content %}

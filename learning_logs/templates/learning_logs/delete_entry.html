@@ -1,0 +1,13 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+  <h1>删除{{ topic }}下的条目</h1>
+{% endblock %}
+
+{% block content %}
+  <p>你确定要删除{{ entry }}吗？</p>
+  <form action="{% url 'learning_logs:delete_entry' entry.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="确认" next="{url 'learning_logs:topic' topic.id}">
+  </form>
+{% endblock %}
