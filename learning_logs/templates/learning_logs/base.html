@@ -28,11 +28,7 @@
           <a class="nav-link" href="{% url 'learning_logs:topics'%}">你的主题</a></li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'learning_logs:logs' %}">更新日志</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
+	    <a class="nav-link" href="{% url 'learning_logs:logs' %}">更新日志</a>
         {% if user.is_authenticated %}
           <li class="nav-item">
             <span class="navbar-text">您好, {{ user.username }}.</span>
