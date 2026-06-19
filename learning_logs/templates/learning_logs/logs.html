@@ -10,7 +10,8 @@
     <ul>
       {% for log in logs %}
         <div class="card mb-3">
-          <li>{{ log.date_added }} - {{ log }}</li>
+          <div class="card-header">{{ log.date_added }}</div>
+          <div class="card-body">{{ log }}</div>
         </div>
       {% endfor %}
     </ul>

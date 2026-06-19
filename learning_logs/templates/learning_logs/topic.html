@@ -1,12 +1,10 @@
 {% extends 'learning_logs/base.html' %}
 
 {% block page_header %}
-  <h3>{{ topic }}</h3>
-  <div class="btn-group">
+  <h2 class="text-title">{{ topic }}</h2>
   <p>
-    <a href="{% url 'learning_logs:new_entry' topic.id %}">添加新条目</a>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}" class="btn-action new-entry">添加新条目</a>
   </p>
-  </div>
 {% endblock page_header %}
 
 {% block content %}
@@ -17,12 +15,12 @@
     <div class="card mb-3">
       <h4 class="card-header">
         {{ entry.date_added|date:'M d, Y H:i' }}
-        <small><a href="{% url 'learning_logs:edit_entry' entry.id %}">编辑条目</a></small>
-        <samll>
-          <a href="{% url 'learning_logs:delete_entry' entry.id %}">删除条目</a>
-        </samll>
+        <small><a href="{% url 'learning_logs:edit_entry' entry.id %}" class="btn-action edit">编辑条目</a></small>
         <small>
-          <a href="{% url 'learning_logs:share_entry' entry.token %}" class="btn btn-sm btn-outline-secondary">分享链接</a>
+          <a href="{% url 'learning_logs:delete_entry' entry.id %}" class="btn-action del">删除条目</a>
+        </small>
+        <small>
+          <a href="{% url 'learning_logs:share_entry' entry.token %}" class="btn-action share">分享链接</a>
         </small>
       </h4>
       <div class="card-body">

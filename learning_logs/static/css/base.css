@@ -1,0 +1,125 @@
+/* === 全局链接美化：主题标题 === */
+a.text-title {
+  text-decoration: none !important;
+  color: #212529; /* Bootstrap text-dark */
+  font-weight: bold;
+  display: inline-block;
+}
+a.text-title:hover {
+  color: #007bff; /* Bootstrap primary */
+  text-decoration: underline !important;
+}
+
+/* === 全局小操作按钮 === */
+a.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem; /* matches btn-sm */
+  border-radius: 0.25rem;
+  text-decoration: none !important;
+  margin-left: 0.375rem;
+  transition: all 0.15s ease;
+}
+a.btn-action.edit {
+  background-color: #cce5ff;
+  border: 1px solid #b8daff;
+  color: #004085;
+}
+a.btn-action.edit:hover {
+  background-color: #b8daff;
+  border-color: #9fcdff;
+  transform: translateY(-1px);
+}
+a.btn-action.share {
+  background-color: #fff;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+}
+a.btn-action.share:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  transform: translateY(-1px);
+}
+a.btn-action.del {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+a.btn-action.del:hover {
+  background-color: #f5c6cb;
+  border-color: #edbbbd;
+  transform: translateY(-1px);
+}
+
+/* === 全局大操作按钮：添加新主题/条目 === */
+a.btn-action.new {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  background-color: #28a745; /* Bootstrap success */
+  color: white !important;
+  text-decoration: none !important;
+  margin-top: 1.25rem;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+a.btn-action.new:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+a.btn-action.new:active {
+  transform: translateY(0);
+}
+a.btn-action.new-entry {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
+  border-radius: 4px;
+  color: #fff !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease-in-out;
+}
+
+a.btn-action.new-entry:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(13, 110, 253, 0.3);
+}
+
+a.btn-action.new-entry:active {
+  background-color: #0a58ca;
+  border-color: #0a53be;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* === 小屏幕适配：避免按钮换行拥挤 === */
+@media (max-width: 576px) {
+  a.btn-action {
+    padding: 0.25rem 0.375rem;
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+  }
+  a.btn-action.new {
+    padding: 0.375rem 1rem;
+    font-size: 1.125rem;
+  }
+}

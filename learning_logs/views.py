@@ -17,7 +17,7 @@ def index(request):
 
 @login_required
 def topics(request):
-    """显示所有主题"""
+    """显示用户的所有主题"""
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
@@ -52,6 +52,28 @@ def new_topic(request):
     # 显示空白或无效的表单
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
+
+@login_required
+def edit_topic(request, topic_id):
+    """修改一个现有的主题"""
+    topic = Topic.objects.get(id=topic_id)
+    if topic.owner != request.user:
+        raise Http404
+    
+    if request.method != 'POST':
+        # 没有提交数据；创建一个空表单
+        form = TopicForm(instance=topic)
+    else:
+        # 提交了数据；处理数据
+        form = TopicForm(instance=topic, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('learning_logs:topics')
+
+    # 显示空白或无效的表单
+    context = {'topic': topic, 'form': form}
+    return render(request, 'learning_logs/edit_topic.html', context)
+        
 
 @login_required
 def new_entry(request, topic_id):

@@ -1,11 +1,15 @@
 {% extends 'learning_logs/base.html' %}
 
 {% block page_header %}
-  <h2>{{ entry.topic }}</h2>
+  <h2><span class="text-title">{{ entry.topic }}</span></h2>
 {% endblock page_header %}
 {% block content %}
 
-  <p>{{ entry.text }}</p>
-  <p>在 {{ entry.date_added|date:"M d, Y H:i" }} 添加</p>
+  <div class="card mb-3">
+    <div class="card-body">
+      <p class="card-text">{{ entry.text|linebreaks }}</p>
+      <p class="card-text"><small class="text-muted">在 {{ entry.date_added|date:"M d, Y H:i" }} 添加</small></p>
+    </div>
+  </div>
 
 {% endblock content %}

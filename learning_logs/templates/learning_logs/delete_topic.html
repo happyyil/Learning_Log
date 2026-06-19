@@ -8,6 +8,6 @@
   <h3>你确认要删除主题 {{ topic }}及其相关的所有条目吗？</h3>
   <form action="{% url 'learning_logs:delete_topic' topic.id %}" method="post">
     {% csrf_token %}
-    <input type="submit" value="确认删除" next="{% url 'learning_logs:topics' %}">
+    <input type="submit" value="确认删除" class="btn-action del" next="{% url 'learning_logs:topics' %}">
   </form>
 {% endblock content %}

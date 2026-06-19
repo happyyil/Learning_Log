@@ -8,14 +8,17 @@
   <ul>
     {% for topic in topics %}
       <li><h3>
-        <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
-        <a href="{% url 'learning_logs:delete_topic' topic.id %}">删除主题</a>
+        <a href="{% url 'learning_logs:topic' topic.id %}" class="text-title">{{ topic }}</a>
+        <small>
+		  <a href="{% url 'learning_logs:edit_topic' topic.id %}" class="btn-action edit">编辑主题</a>
+          <a href="{% url 'learning_logs:delete_topic' topic.id %}" class="btn-action del">删除主题</a>
+		</small>
       </h3></li>
     {% empty %}
       <li><h3>还没有添加任何主题。</h3></li>
     {% endfor %}
   </ul>
 
-  <h3><a href="{% url 'learning_logs:new_topic' %}">添加新主题</a></h3>
+  <h2><a href="{% url 'learning_logs:new_topic' %}" class="btn-action new">添加新主题</a></h2>
 
 {% endblock content %}

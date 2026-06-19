@@ -8,6 +8,6 @@
   <p>你确定要删除{{ entry }}吗？</p>
   <form action="{% url 'learning_logs:delete_entry' entry.id %}" method="post">
     {% csrf_token %}
-    <input type="submit" value="确认" next="{url 'learning_logs:topic' topic.id}">
+    <input type="submit" value="确认" class="btn-action del" next="{url 'learning_logs:topic' topic.id}">
   </form>
 {% endblock %}

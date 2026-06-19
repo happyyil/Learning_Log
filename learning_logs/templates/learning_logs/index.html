@@ -7,9 +7,9 @@
     <p class="lead">让你的学习经验记录在这里，分享给其他人，帮助你更好的学习！</p>
 
     {% if user.is_authenticated %}
-      <a class="btn btn-lg btn-primary" href="{% url 'learning_logs:topics' %}" role="button">开始吧 &raquo;</a>
+      <a class="btn-action new" href="{% url 'learning_logs:topics' %}" role="button">开始吧 &raquo;</a>
     {% else %}
-      <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">现在开始 &raquo;</a>
+      <a class="btn-action new" href="{% url 'users:register' %}" role="button">现在开始 &raquo;</a>
     {% endif %}
   </div>
 {% endblock page_header %}
@@ -21,7 +21,7 @@
   <ul>
     {% for topic in topics %}
       <li>
-        <h4>{{ topic.text }}</h4>
+        <h4><a href="{% url 'learning_logs:topic' topic.id %}" class="text-title">{{ topic.text }}</a></h4>
         <h6>发布于 {{ topic.date_added|date:'M d, Y H:i' }}</h6>
       </li>
     {% empty %}
@@ -34,7 +34,7 @@
     {% for entry in entries %}
       <div class="card mb-3">
         {% if not entry.topic.private %}
-        <h4 class="card-header">{{ entry.topic.text }}</h4>
+        <h4 class="card-header"><a href="{% url 'learning_logs:topic' entry.topic.id %}" class="text-title">{{ entry.topic.text }}</a></h4>
         {% else %}
             <h4 class="card-header">私密主题</h4>
         {% endif %}
