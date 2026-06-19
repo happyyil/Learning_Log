@@ -33,7 +33,7 @@
 	    <a class="nav-link" href="{% url 'learning_logs:logs' %}">更新日志</a>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <span class="navbar-text">您好, {{ user.username }}.</span>
+            <a class="nav-link" href="{% url 'users:profile' %}">{{ user.username }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'users:logged_out' %}">登出</a>

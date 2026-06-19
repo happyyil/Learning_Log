@@ -2,4 +2,4 @@
 2025/03/01 添加条目分享链接
 2025/03/02 添加日志功能
 2026/05/17 成功部署至PythonAnyWhere
-2026/06/19 修改了PythonAnywhere的部署方式、运作方式，以及我最头疼的DiskUsage未解决
+2026/06/19 修改了PythonAnywhere的部署方式、运作方式，以及我最头疼的DiskUsage未解决。\n用户界面！！！
