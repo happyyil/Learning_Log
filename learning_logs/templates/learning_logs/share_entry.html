@@ -6,9 +6,19 @@
 
 {% block content %}
 
-<h5>分享链接: {{ share_url }}</h5>
-<a href="{% url 'learning_logs:entry_token' entry.id %}" class="btn-action share">复制链接</a>
+<h5>分享链接:</h5>
+<input type="text" id="share-url" value="{{ share_url }}" readonly style="width: 100%; max-width: 500px; padding: 8px; margin-bottom: 10px;">
+<button onclick="copyUrl()" class="btn-action share">复制链接</button>
 
 <p>分享此条目，让其他用户可以查看。</p>
+
+<script>
+function copyUrl() {
+  var input = document.getElementById('share-url');
+  input.select();
+  document.execCommand('copy');
+  alert('已复制到剪贴板！');
+}
+</script>
 
 {% endblock content %}

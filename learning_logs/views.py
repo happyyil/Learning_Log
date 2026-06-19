@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
-import pyperclip
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -162,8 +161,7 @@ def shared_entry(request, token):
 
 def entry_token(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
-    pyperclip.copy(f"{request.scheme}://{request.get_host()}/shared_entry/{entry.token}")
-    return redirect('learning_logs:share_entry',token=entry.token)
+    return redirect('learning_logs:share_entry', token=entry.token)
 
 def logs(request):
     """显示日志"""
