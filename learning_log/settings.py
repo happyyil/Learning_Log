@@ -25,7 +25,7 @@ SECRET_KEY = 'c&=x%v4k!%$bn&9!)*b5%-0ao)fsrl6@mbpd8t8zt*b*5#*4h0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ["127.0.0.1", "heying.click"]
+ALLOWED_HOSTS = ["127.0.0.1", "heull.pythonanywhere.com"]
 
 
 # Application definition
