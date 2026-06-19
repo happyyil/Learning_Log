@@ -167,13 +167,17 @@ def logs(request):
     """显示日志"""
     logs = []
     class Log:
-        def __init__(self, message):
-            self.message = message.split()[1]
-            self.date_added = message.split()[0]
+        def __init__(self, date, message):
+            self.message = message.replace('\\n', '\n')
+            self.date_added = date
         def __str__(self):
             return self.message
     with open('learning_log/logs.txt', 'r', encoding='utf-8') as f:
         for line in f:
-            logs.append(Log(line.strip()))
+            line = line.strip()
+            if not line:
+                continue
+            parts = line.split(' ', 1)
+            logs.append(Log(parts[0], parts[1] if len(parts) > 1 else ''))
     context = {'logs': logs}
     return render(request, 'learning_logs/logs.html', context)

@@ -52,6 +52,7 @@ def profile(request):
             return redirect('users:profile')
 
     context = {
+        'profile': profile,
         'user_form': user_form,
         'profile_form': profile_form,
     }

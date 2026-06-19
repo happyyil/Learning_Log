@@ -11,7 +11,7 @@
       {% for log in logs %}
         <div class="card mb-3">
           <div class="card-header">{{ log.date_added }}</div>
-          <div class="card-body">{{ log }}</div>
+          <div class="card-body">{{ log|linebreaks }}</div>
         </div>
       {% endfor %}
     </ul>
